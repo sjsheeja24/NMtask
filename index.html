@@ -3,69 +3,216 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fake Store</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            background-color: #f4f4f4;
-            margin: 20px;
-        }
-        .product {
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            background: white;
-            padding: 15px;
-            margin: 10px;
-            width: 250px;
-            text-align: center;
-            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        img {
-            width: 100%;
-            height: 200px;
-            object-fit: contain;
-        }
-        h2 {
-            font-size: 16px;
-            margin: 10px 0;
-        }
-        p {
-            font-size: 14px;
-            color: #555;
-        }
-        .price {
-            font-size: 18px;
-            font-weight: bold;
-            color: #27ae60;
-        }
-    </style>
+    <title>SJ Shoppy</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
 </head>
 <body>
-    <div id="products"></div>
-    
-    <script>
-        async function fetchProducts() {
-            const response = await fetch('https://fakestoreapi.com/products');
-            const products = await response.json();
-            const productContainer = document.getElementById('products');
-            
-            products.forEach(product => {
-                const productElement = document.createElement('div');
-                productElement.classList.add('product');
-                productElement.innerHTML = `
-                    <img src="${product.image}" alt="${product.title}">
-                    <h2>${product.title}</h2>
-                    <p>${product.description.substring(0, 80)}...</p>
-                    <p class="price">$${product.price}</p>
-                `;
-                productContainer.appendChild(productElement);
-            });
-        }
-        
-        fetchProducts();
-    </script>
+    <header>
+        <a href="#" class="logo"> SJ Shoppy</a>
+        <div id="cart-icon">
+            <i class="ri-shopping-cart-fill"></i>
+            <span class="cart-item-count"></span>
+        </div>
+    </header>
+
+
+    <div class="cart">
+        <h2 class="cart-title">Your Cart</h2>
+        <div class="cart-content">
+            <!-- <div class="cart-box">
+                <img src="img/o1.jpg" class="cart-img">
+                <div class="cart-detail">
+                    <h2 class="cart-product-title">stylish office outfit</h2>
+                    <span class="cart-price">$500</span>
+                    <div class="cart-quantity">
+                        <button id="decrement">-</button>
+                        <span class="number">1</span>
+                        <button id="increment">+</button>
+                    </div>
+                </div>
+                <i class="ri-delete-bin-line cart-remove"></i>
+            </div> -->
+        </div>
+        <div class="total">
+            <div class="total-title">Total</div>
+            <div class="total-price">$0</div>
+        </div>
+        <button class="btn-buy">Buy Now</button>
+        <i class="ri-close-line" id="cart-close"></i>
+    </div>
+
+    <section class="shop">
+        <h1 class="section-title">Shop products</h1>
+        <div class="product-content">
+            <div class="product-box">
+                <div class="img-box">
+                    <img src="img/o1.jpg">
+                </div>
+                <h2 class="product-title">Stylish office outfit</h2>
+                <div class="price-and-cart">
+                    <span class="price">$500</span>
+                    <button class="add-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-box">
+                <div class="img-box">
+                    <img src="img/o2.jpg">
+                </div>
+                <h2 class="product-title">Black stylish outfit</h2>
+                <div class="price-and-cart">
+                    <span class="price">$400</span>
+                    <button class="add-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-box">
+                <div class="img-box">
+                    <img src="img/o3.jpg">
+                </div>
+                <h2 class="product-title"> Pink Stylish outfit</h2>
+                <div class="price-and-cart">
+                    <span class="price">$2100</span>
+                    <button class="add-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-box">
+                <div class="img-box">
+                    <img src="img/o4.jpg">
+                </div>
+                <h2 class="product-title">Maroon Stylish outfit</h2>
+                <div class="price-and-cart">
+                    <span class="price">$5500</span>
+                    <button class="add-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-box">
+                <div class="img-box">
+                    <img src="img/o5.jpg">
+                </div>
+                <h2 class="product-title">Effortless office style</h2>
+                <div class="price-and-cart">
+                    <span class="price">$1100</span>
+                    <button class="add-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-box">
+                <div class="img-box">
+                    <img src="img/o6.jpg">
+                </div>
+                <h2 class="product-title">Business casual set</h2>
+                <div class="price-and-cart">
+                    <span class="price">$3000</span>
+                    <button class="add-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-box">
+                <div class="img-box">
+                    <img src="img/o7.jpg">
+                </div>
+                <h2 class="product-title">Women Blue stylish jean</h2>
+                <div class="price-and-cart">
+                    <span class="price">$1800</span>
+                    <button class="add-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-box">
+                <div class="img-box">
+                    <img src="img/o8.jpg">
+                </div>
+                <h2 class="product-title"> Louis vuitton Stylish outfit</h2>
+                <div class="price-and-cart">
+                    <span class="price">$650</span>
+                    <button class="add-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-box">
+                <div class="img-box">
+                    <img src="img/o9.jpg">
+                </div>
+                <h2 class="product-title">Fall outfit</h2>
+                <div class="price-and-cart">
+                    <span class="price">$600</span>
+                    <button class="add-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-box">
+                <div class="img-box">
+                    <img src="img/o10.jpg">
+                </div>
+                <h2 class="product-title">Trendy blacky outfit</h2>
+                <div class="price-and-cart">
+                    <span class="price">$800</span>
+                    <button class="add-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-box">
+                <div class="img-box">
+                    <img src="img/o11.jpg">
+                </div>
+                <h2 class="product-title">Women Trendy handbag</h2>
+                <div class="price-and-cart">
+                    <span class="price">$200</span>
+                    <button class="add-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-box">
+                <div class="img-box">
+                    <img src="img/o12.jpg">
+                </div>
+                <h2 class="product-title">Sling Bag</h2>
+                <div class="price-and-cart">
+                    <span class="price">$300</span>
+                    <button class="add-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-box">
+                <div class="img-box">
+                    <img src="img/o13.jpg">
+                </div>
+                <h2 class="product-title">Brown Trendy bag</h2>
+                <div class="price-and-cart">
+                    <span class="price">$310</span>
+                    <button class="add-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-box">
+                <div class="img-box">
+                    <img src="img/o14.jpg">
+                </div>
+                <h2 class="product-title">Sandal office Bag</h2>
+                <div class="price-and-cart">
+                    <span class="price">$400</span>
+                    <button class="add-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-box">
+                <div class="img-box">
+                    <img src="img/o15.jpg">
+                </div>
+                <h2 class="product-title">Stylish office Bag</h2>
+                <div class="price-and-cart">
+                    <span class="price">$500</span>
+                    <button class="add-cart">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <script src="script.js"></script>
 </body>
 </html>
